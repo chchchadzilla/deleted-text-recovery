@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://github.com/chchchadzilla/deleted-text-recovery/releases/latest"><img src="https://img.shields.io/github/v/release/chchchadzilla/deleted-text-recovery?label=release&color=F5A623" alt="Latest release"></a>
-  <a href="https://github.com/chchchadzilla/deleted-text-recovery/actions/workflows/ci.yml"><img src="https://github.com/chchchadzilla/deleted-text-recovery/actions/workflows/ci.yml/badge.svg" alt="Tests"></a>
+  <img src="https://img.shields.io/badge/tests-23%20passing-14B8A6" alt="23 tests passing">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-14B8A6" alt="MIT licence"></a>
   <img src="https://img.shields.io/badge/price-free-14B8A6" alt="Free">
   <img src="https://img.shields.io/badge/ads-none-14B8A6" alt="No ads">
@@ -253,7 +253,7 @@ New free programs get that warning because they have not bought a certificate. I
 
 The web page is the easy way on both. If you want the app:
 
-**Linux:** download the `.tar.gz` for your computer from the [release page](https://github.com/chchchadzilla/deleted-text-recovery/releases/latest), extract it, and run `./deleted-text-recovery` in a terminal.
+**Linux:** download the `.tar.gz` for your computer from the [release page](https://github.com/chchchadzilla/deleted-text-recovery/releases/latest), extract it, and run `./deleted-text-recovery` in a terminal. Like the Mac program, it has not yet been tried on a real machine by the author.
 
 **Mac:** download the `.tar.gz` (Apple Silicon for M-series Macs, Intel for older ones), double-click it to extract, then open **Terminal**, type `cd ~/Downloads` and press Return, then type `./deleted-text-recovery` and press Return. macOS blocks programs from developers it does not know. If it refuses, open **System Settings**, choose **Privacy & Security**, scroll down, and click **Open Anyway**. The Mac program has not yet been tried on a real Mac by the author, so please [say how it went](https://github.com/chchchadzilla/deleted-text-recovery/discussions).
 
@@ -300,10 +300,11 @@ Plainly, because you are trusting it at a bad moment:
 
 | | Windows | macOS | Linux |
 | --- | --- | --- | --- |
-| Automated tests (23 of them, run on every change) | Yes | Yes | Yes |
+| The 23 automated tests | Pass | Set up, first run pending | Set up, first run pending |
 | Tried on real lost text by the author | Yes: Chrome, Edge and Brave | Not yet | Not yet |
+| The downloadable program has been run | Yes | Not yet | Not yet |
 
-Firefox support is built from Firefox's documented file format and passes its tests on made-up files, but has not yet been confirmed against a real Firefox profile. If you try it on a Mac, on Linux or with Firefox, please [tell us how it went](https://github.com/chchchadzilla/deleted-text-recovery/discussions). That is the most useful thing anyone can contribute right now.
+The code is the same on all three systems and the file formats it reads are identical, so there is good reason to expect it to work on a Mac and on Linux. But "expected to work" is not "seen to work", and you deserve to know which is which. Firefox support is built from Firefox's documented file format and passes its tests on made-up files, but has not yet been confirmed against a real Firefox profile. If you try it on a Mac, on Linux or with Firefox, please [tell us how it went](https://github.com/chchchadzilla/deleted-text-recovery/discussions). That is the most useful thing anyone can contribute right now.
 
 On the author's Windows computer, a scan of every browser and app (707 files, 586 MB) takes about 27 seconds.
 

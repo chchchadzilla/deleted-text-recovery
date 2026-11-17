@@ -19,8 +19,8 @@ First release.
   - Refuses to read files that hold passwords, cookies, payment data or encryption keys.
 - **Web app** (`apps/web`): one self-contained page that scans a dropped folder inside the browser tab. Its Content-Security-Policy forbids all network connections. Includes step-by-step directions for Windows, macOS and Linux and a demo on made-up data.
 - **Desktop app** (`apps/desktop`): finds every supported browser and app by itself on Windows, macOS and Linux, including other apps built on Chromium. Shows results in a page served only to the local computer, or prints them with `--cli`. JSON and text-file export.
-- Standalone downloads for Windows, macOS and Linux, built in CI with checksums.
-- 23 automated tests, run on Windows, macOS and Linux.
+- Standalone downloads for Windows, macOS and Linux, with checksums.
+- 23 automated tests, and CI set up for Windows, macOS and Linux.
 
 ### Verified
 
@@ -30,7 +30,9 @@ First release.
 ### Known limits
 
 - Firefox support is tested on synthetic files only.
-- macOS and Linux have automated test coverage but no confirmed real-world recovery yet.
+- The automated tests have so far run on Windows only. The macOS and Linux CI runs are pending, and there is no confirmed real-world recovery on either yet.
+- The macOS and Linux downloads were cross-built on Windows and have not yet been run on a real machine.
+- The 0.1.0 downloads were built on the maintainer's computer rather than in CI.
 - The downloads are not code-signed, so Windows and macOS warn about an unknown developer.
 - Safari is not supported.
 
