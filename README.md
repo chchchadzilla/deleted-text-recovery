@@ -70,7 +70,7 @@ Pick the row that matches your computer.
 
 The app looks through every browser and writing app on your computer for you. You press one button.
 
-**Step 1.** Click this link to download it: **[DeletedTextRecovery-Windows.exe](https://github.com/chchchadzilla/deleted-text-recovery/releases/latest/download/DeletedTextRecovery-Windows.exe)** (about 110 MB).
+**Step 1.** Click this link to download it: **[DeletedTextRecovery-Windows.exe](https://github.com/chchchadzilla/deleted-text-recovery/releases/latest/download/DeletedTextRecovery-Windows.exe)** (about 115 MB).
 
 If you can, download it with a *different* browser from the one you lost your text in. Every Windows computer has Microsoft Edge.
 
@@ -318,7 +318,7 @@ Someone typed a message of about 7,000 characters into an AI chat page, attached
 
 They asked an AI coding assistant, without much hope, whether it might be somewhere in the browser's cache. Ten minutes later the whole message was back, word for word. The browser had been saving the contents of that text box roughly every twenty characters, in the file it uses to restore tabs. One hundred and one copies of the message were sitting on the hard drive the entire time.
 
-The relief was so complete that the trick was turned into this tool the same night, so the next person does not need an expert, luck, or ten spare minutes of someone else's time. More in [ABOUT.md](ABOUT.md).
+The relief was so complete that work on this tool started that same night and it shipped the next day, so the next person does not need an expert, luck, or ten spare minutes of someone else's time. More in [ABOUT.md](ABOUT.md).
 
 ---
 
