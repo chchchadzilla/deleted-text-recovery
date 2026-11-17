@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en" data-mode="web">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="__CSP__">
+<meta name="referrer" content="no-referrer">
+<title>Deleted Text Recovery: get back text you typed and lost</title>
+<meta name="description" content="Typed something long and lost it? Your browser may still have it. A free, no-ads tool that finds it on your own computer. Nothing is uploaded.">
+<!--__OG__-->
+<!--__ICON__-->
+<style>/*__CSS__*/</style>
+</head>
+<body>
+<a class="skip" href="#start">Skip to the steps</a>
+
+<header class="top">
+  <div class="brand">
+    <span class="mark" aria-hidden="true"><!--__MASCOT__--></span>
+    <span class="name">Deleted <b>Text</b> Recovery</span>
+  </div>
+  <nav class="links" aria-label="Project links">
+    <a href="__REPO__#readme" target="_blank" rel="noopener noreferrer">Help</a>
+    <a href="__REPO__" target="_blank" rel="noopener noreferrer">Star on GitHub</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Don't panic. Your text may still be on this computer.</h1>
+    <p class="lead">When you type into a web page, your browser quietly keeps copies so it can restore your tabs after a crash. Those copies often survive a wrong click, a reload, or a message that sent blank. This tool finds them.</p>
+    <ul class="promises" aria-label="What you can count on">
+      <li>Free</li>
+      <li>No ads</li>
+      <li>No account</li>
+      <li class="web-only">Nothing is uploaded</li>
+      <li class="local-only">Nothing leaves this computer</li>
+    </ul>
+  </section>
+
+  <section class="card rules" aria-labelledby="rules-title">
+    <h2 id="rules-title">Before anything else</h2>
+    <ol>
+      <li><b>Leave the tab where you lost it open.</b> Don't close it and don't reload it.</li>
+      <li><b>Don't restart the computer.</b></li>
+      <li><b>Do as little as you can in that browser.</b> It clears old copies away as you keep browsing, sometimes within an hour or two.</li>
+    </ol>
+  </section>
+
+  <details class="card firstaid" id="firstaid">
+    <summary>Four things to try first (20 seconds)</summary>
+    <ol>
+      <li>Click inside the box you were typing in and press <kbd>Ctrl</kbd> + <kbd>Z</kbd> a few times (<kbd>Command</kbd> + <kbd>Z</kbd> on a Mac).</li>
+      <li>If the page changed, press the browser's Back button once. Browsers often put your text back.</li>
+      <li>If you closed the tab, press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd> (<kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd> on a Mac) to reopen it.</li>
+      <li>On Windows, press <kbd>Windows</kbd> + <kbd>V</kbd>. If you ever copied the text, it may be in that list.</li>
+    </ol>
+    <p class="quiet">No luck? Carry on below.</p>
+  </details>
+
+  <section class="card" id="start" aria-labelledby="start-title">
+    <h2 id="start-title" class="local-only">Find my text</h2>
+    <h2 class="web-only">Find my text in three steps</h2>
+
+    <div class="local-only">
+      <p>Press the button. The app looks through the autosave history of every browser and writing app it can find on this computer.</p>
+      <div class="row">
+        <label for="scan-days">Look back</label>
+        <select id="scan-days">
+          <option value="2">2 days</option>
+          <option value="7">1 week</option>
+          <option value="30" selected>1 month</option>
+          <option value="0">as far as possible</option>
+        </select>
+      </div>
+      <button class="primary big" id="scan-computer" type="button">Scan this computer</button>
+      <p class="quiet" id="local-status" role="status"></p>
+    </div>
+
+    <div class="web-only">
+      <div class="step">
+        <h3><span class="num">1</span> Where were you typing?</h3>
+        <div class="chips" id="app-chips" role="radiogroup" aria-label="App you were typing in"></div>
+        <div class="chips small" id="os-chips" role="radiogroup" aria-label="Your computer"></div>
+      </div>
+
+      <div class="step">
+        <h3><span class="num">2</span> Open its folder</h3>
+        <ol class="guide" id="guide-steps"></ol>
+        <p class="quiet" id="guide-note"></p>
+      </div>
+
+      <div class="step">
+        <h3><span class="num">3</span> Drop it here</h3>
+        <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-describedby="drop-help">
+          <p class="drop-title">Drag the folder onto this box</p>
+          <p id="drop-help" class="quiet">It is read here, in this tab. It is not uploaded. You can also drop single files.</p>
+          <p><button type="button" id="pick-folder">or choose the folder</button></p>
+        </div>
+        <input type="file" id="folder-input" webkitdirectory multiple hidden>
+        <p class="quiet">If your browser asks to "upload" the files when you choose a folder, that is its standard wording for letting a page read them. They stay on your computer.</p>
+      </div>
+    </div>
+
+    <p class="demo-line">Not sure about it yet? <button type="button" class="link" id="demo-btn">Watch it work on made-up sample data</button></p>
+  </section>
+
+  <section class="card" id="progress" hidden aria-live="polite">
+    <h2>Looking…</h2>
+    <progress id="progress-bar" max="1" value="0"></progress>
+    <p id="progress-text" class="quiet"></p>
+  </section>
+
+  <div class="card error" id="error-box" role="alert" hidden></div>
+
+  <section id="results" hidden aria-labelledby="results-title">
+    <div class="card">
+      <h2 id="results-title">What I found</h2>
+      <p id="summary-line"></p>
+      <div class="notice" id="locked-box" hidden></div>
+      <div class="filters">
+        <label class="search">
+          <span>Type a few words you remember</span>
+          <input type="search" id="search" placeholder="for example: sourdough starter" autocomplete="off" spellcheck="false">
+        </label>
+        <div class="chips small" id="kind-chips" role="radiogroup" aria-label="Kind of text"></div>
+        <label class="inline">Shortest to show
+          <select id="minlen">
+            <option value="0">anything</option>
+            <option value="40" selected>a sentence</option>
+            <option value="300">a paragraph</option>
+            <option value="1500">a page</option>
+          </select>
+        </label>
+      </div>
+      <p class="quiet" id="match-line" role="status"></p>
+    </div>
+
+    <div id="findings"></div>
+
+    <div class="card" id="empty" hidden>
+      <h3>Nothing matches yet. Things that often help:</h3>
+      <ul>
+        <li>Clear the search box, or set "Shortest to show" to "anything".</li>
+        <li class="local-only">Set "Look back" to "as far as possible" and scan again.</li>
+        <li>On Windows, close every window of the browser you were typing in (do not reopen it) and scan again. A running browser keeps its newest history file locked.</li>
+        <li class="web-only">Drop the folder of a different browser or profile. Each one keeps its own history.</li>
+        <li class="web-only">Try the desktop app. It checks every browser and writing app on the computer by itself.</li>
+      </ul>
+      <p class="quiet">Some text cannot be recovered: rich editors (the kind with bold and italic buttons) and pages that switch autosave off leave fewer traces. It was still worth looking.</p>
+    </div>
+
+    <div class="card after">
+      <p><b>Got it back?</b> Copy it somewhere safe first. Then, if this saved your work, <a href="__REPO__" target="_blank" rel="noopener noreferrer">give the project a star on GitHub</a> so the next person in a panic can find it.</p>
+      <div class="row">
+        <button type="button" id="again-btn">Scan again</button>
+        <button type="button" id="reset-btn" class="web-only">Start over</button>
+        <button type="button" id="quit-btn" class="local-only">I'm done, close the app</button>
+      </div>
+    </div>
+  </section>
+
+  <details class="card">
+    <summary>Is this safe? What does it read?</summary>
+    <p class="web-only">This page has no way to send your data anywhere. It is built with a security rule (a Content-Security-Policy) that blocks it from making any network connection at all. You can turn your internet off after the page has loaded and it will work the same.</p>
+    <p class="local-only">The app runs on this computer only, at the address 127.0.0.1, which other devices cannot reach. It makes no network connections.</p>
+    <p>It reads the autosave history of browsers and writing apps: tab-restore files, the small databases websites keep, and unsaved-document backups. It opens them read-only and changes nothing.</p>
+    <p>It never opens saved passwords, cookies, payment details or encryption keys. Those files are on a block list in the code.</p>
+    <p>Everything it finds stays in this tab's memory and is gone when you close it. Nothing is saved unless you press "Save as a text file".</p>
+  </details>
+</main>
+
+<footer>
+  <p>Zee the Text Retriever fetched this for you. Version <span id="version"></span>. Open source under the MIT licence.</p>
+  <p><a href="__REPO__" target="_blank" rel="noopener noreferrer">Source code and instructions</a> · <a href="__REPO__/issues" target="_blank" rel="noopener noreferrer">Report a problem</a></p>
+</footer>
+
+<script>/*__JS__*/</script>
+</body>
+</html>

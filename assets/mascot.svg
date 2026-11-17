@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="zee-title zee-desc">
+  <title id="zee-title">Zee the Text Retriever</title>
+  <desc id="zee-desc">A friendly golden retriever gently holding a recovered sheet of text in its mouth.</desc>
+  <defs>
+    <clipPath id="zee-body-clip">
+      <path d="M200 312H312C392 330 432 410 432 470C432 492 416 504 396 504H116C96 504 80 492 80 470C80 410 120 330 200 312Z"/>
+    </clipPath>
+  </defs>
+  <g transform="translate(0 -26)">
+    <!-- shoulders -->
+    <path d="M200 312H312C392 330 432 410 432 470C432 492 416 504 396 504H116C96 504 80 492 80 470C80 410 120 330 200 312Z" fill="#F5A623"/>
+    <ellipse cx="256" cy="320" rx="150" ry="30" fill="#D4831A" fill-opacity="0.34" clip-path="url(#zee-body-clip)"/>
+    <!-- head -->
+    <path d="M238 76C242 60 252 50 264 46C262 56 266 63 275 58C275 66 278 72 282 78Z" fill="#F5A623"/>
+    <ellipse cx="256" cy="190" rx="128" ry="120" fill="#F5A623"/>
+    <!-- floppy ears -->
+    <path d="M178 86C158 70 122 76 106 108C88 146 82 222 96 266C104 290 128 294 140 272C154 246 152 196 160 150C164 128 170 104 178 86Z" fill="#D4831A"/>
+    <path d="M334 86C354 70 390 76 406 108C424 146 430 222 416 266C408 290 384 294 372 272C358 246 360 196 352 150C348 128 342 104 334 86Z" fill="#D4831A"/>
+    <!-- recovered sheet of text -->
+    <g transform="rotate(-5 256 300)">
+      <path d="M180 290L334 286L340 356L335 434L310 462L186 458L177 380Z" transform="translate(8 9)" fill="#D4831A" stroke="#D4831A" stroke-width="8" stroke-linejoin="round"/>
+      <path d="M180 290L334 286L340 356L335 434L310 462L186 458L177 380Z" fill="#FFF8EB" stroke="#FFF8EB" stroke-width="8" stroke-linejoin="round"/>
+      <path d="M339 432L310 436L308 465Z" fill="#FFD27A" stroke="#FFD27A" stroke-width="4" stroke-linejoin="round"/>
+      <g fill="none" stroke="#475569" stroke-opacity="0.22" stroke-width="3" stroke-linecap="round">
+        <path d="M178 404L192 416"/>
+        <path d="M232 460L240 448"/>
+      </g>
+      <g fill="none" stroke="#475569" stroke-opacity="0.62" stroke-width="10" stroke-linecap="round">
+        <path d="M200 340H314"/>
+        <path d="M200 366H296"/>
+        <path d="M200 418H282"/>
+        <path d="M200 444H262"/>
+      </g>
+      <path d="M200 392H318" fill="none" stroke="#14B8A6" stroke-width="10" stroke-linecap="round"/>
+    </g>
+    <!-- cheeks -->
+    <circle cx="176" cy="238" r="14" fill="#FF6B35" fill-opacity="0.24"/>
+    <circle cx="336" cy="238" r="14" fill="#FF6B35" fill-opacity="0.24"/>
+    <!-- muzzle -->
+    <path d="M256 212C292 212 326 234 326 270C326 298 308 314 288 314C272 314 260 306 256 294C252 306 240 314 224 314C204 314 186 298 186 270C186 234 220 212 256 212Z" fill="#FFD27A"/>
+    <path d="M306 304C300 311 294 314 288 314C272 314 260 306 256 294C252 306 240 314 224 314C218 314 212 311 206 304" fill="none" stroke="#0F172A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M256 254V294" fill="none" stroke="#0F172A" stroke-width="6" stroke-linecap="round"/>
+    <!-- nose -->
+    <path d="M226 229C226 220 240 217 256 217C272 217 286 220 286 229C286 245 268 258 256 258C244 258 226 245 226 229Z" fill="#0F172A"/>
+    <ellipse cx="245" cy="227" rx="9" ry="4" fill="#FFFFFF" fill-opacity="0.3"/>
+    <!-- eyes -->
+    <ellipse cx="204" cy="178" rx="18" ry="22" fill="#0F172A"/>
+    <ellipse cx="308" cy="178" rx="18" ry="22" fill="#0F172A"/>
+    <circle cx="198" cy="169" r="7" fill="#FFFFFF"/>
+    <circle cx="302" cy="169" r="7" fill="#FFFFFF"/>
+    <circle cx="210" cy="187" r="3" fill="#FFFFFF"/>
+    <circle cx="314" cy="187" r="3" fill="#FFFFFF"/>
+    <!-- brows -->
+    <path d="M181 142Q198 130 217 137" fill="none" stroke="#D4831A" stroke-width="7" stroke-linecap="round"/>
+    <path d="M331 142Q314 130 295 137" fill="none" stroke="#D4831A" stroke-width="7" stroke-linecap="round"/>
+  </g>
+</svg>

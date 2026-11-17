@@ -1,0 +1,37 @@
+{
+  "name": "deleted-text-recovery",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Get back text you typed and lost. Free, no ads, runs entirely on your own computer.",
+  "license": "MIT",
+  "type": "module",
+  "homepage": "https://chchchadzilla.github.io/deleted-text-recovery/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chchchadzilla/deleted-text-recovery.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chchchadzilla/deleted-text-recovery/issues"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node scripts/test.mjs",
+    "check": "npm run typecheck && npm test && npm run build",
+    "start": "npm run build && node apps/desktop/dist/deleted-text-recovery.cjs",
+    "cli": "npm run build && node apps/desktop/dist/deleted-text-recovery.cjs --cli",
+    "serve:web": "node scripts/serve-web.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.6.0"
+  }
+}

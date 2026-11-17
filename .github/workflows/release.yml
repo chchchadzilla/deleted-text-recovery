@@ -1,0 +1,75 @@
+name: Release
+
+# Builds the standalone programs from the tagged source and attaches them to the release,
+# with checksums and a build provenance attestation.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag to build and upload to (for example v0.1.0)
+        required: true
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ github.event.release.tag_name || inputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: node scripts/audit.mjs
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.4
+
+      - name: Compile standalone programs
+        run: |
+          set -euo pipefail
+          app=apps/desktop/dist/deleted-text-recovery.cjs
+          mkdir -p out stage
+          bun build "$app" --compile --target=bun-windows-x64 --outfile out/DeletedTextRecovery-Windows.exe
+          build() {
+            # $1 = bun target, $2 = name used in the download
+            mkdir -p "stage/$2"
+            bun build "$app" --compile --target="bun-$1" --outfile "stage/$2/deleted-text-recovery"
+            chmod +x "stage/$2/deleted-text-recovery"
+            tar -C "stage/$2" -czf "out/DeletedTextRecovery-$2.tar.gz" deleted-text-recovery
+          }
+          build linux-x64 Linux-x64
+          build linux-arm64 Linux-arm64
+          build darwin-arm64 macOS-AppleSilicon
+          build darwin-x64 macOS-Intel
+          cp "$app" out/deleted-text-recovery.cjs
+          cp apps/web/dist/index.html out/DeletedTextRecovery-WebApp.html
+          (cd out && sha256sum * > SHA256SUMS.txt)
+          ls -la out
+
+      - name: Smoke test the Linux program
+        run: |
+          ./stage/Linux-x64/deleted-text-recovery --version
+          ./stage/Linux-x64/deleted-text-recovery --cli --days 1 --top 1
+
+      - name: Attach to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "$TAG" out/* --clobber
+
+      - name: Attest build provenance
+        continue-on-error: true
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: out/*

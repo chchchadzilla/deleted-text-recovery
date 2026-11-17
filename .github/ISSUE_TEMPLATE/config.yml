@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Tell us whether it found your text
+    url: https://github.com/chchchadzilla/deleted-text-recovery/discussions
+    about: Reports from Macs, Linux and Firefox are especially welcome. Please never post the recovered text itself.
+  - name: Ask a question or suggest a place to look
+    url: https://github.com/chchchadzilla/deleted-text-recovery/discussions
+    about: No question is too basic.
+  - name: Report a security or privacy problem privately
+    url: https://github.com/chchchadzilla/deleted-text-recovery/security/advisories/new
+    about: Please do not open a public issue for these.

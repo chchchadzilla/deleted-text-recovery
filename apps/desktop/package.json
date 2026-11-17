@@ -1,0 +1,11 @@
+{
+  "name": "@deleted-text-recovery/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The desktop app: finds every browser and writing app on the computer by itself, scans their autosave history, and shows the results in a page served only to this machine. Also works as a command-line tool.",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@deleted-text-recovery/core": "*"
+  }
+}

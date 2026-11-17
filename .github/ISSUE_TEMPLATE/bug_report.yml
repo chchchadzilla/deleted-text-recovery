@@ -1,0 +1,46 @@
+name: Something went wrong
+description: The tool crashed, showed an error, or did something it should not have.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time. **Please do not paste recovered text or attach real browser files.** They can contain private things. A description is enough.
+
+        If the tool simply did not find your text, that is better reported in [Discussions](https://github.com/chchchadzilla/deleted-text-recovery/discussions), where we collect what works and what does not.
+  - type: dropdown
+    id: way
+    attributes:
+      label: Which one were you using?
+      options:
+        - The web page
+        - The Windows app
+        - The Mac app
+        - The Linux app
+        - The command line
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: Your computer
+      description: For example "Windows 11", "macOS 15 on an M2 MacBook", "Ubuntu 24.04".
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: The browser or app you were typing in
+      description: For example "Chrome", "Firefox", "Notepad++".
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what you saw instead. Copy any error message exactly.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Shown at the bottom of the page, or by running the app with --version.

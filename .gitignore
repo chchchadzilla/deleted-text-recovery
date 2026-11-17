@@ -1,0 +1,55 @@
+# Dependencies and build output
+node_modules/
+dist/
+.tmp/
+*.tsbuildinfo
+coverage/
+
+# Secrets and credentials: this project needs none, and none may ever be committed
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+id_rsa*
+id_ed25519*
+*.token
+secrets/
+.secrets/
+credentials*.json
+service-account*.json
+.npmrc
+.netrc
+
+# Anything recovered from a real computer stays off GitHub
+recovered*/
+recovered-*.txt
+*.recovered.txt
+scan-output/
+real-data/
+.local/
+
+# Real browser and app data must never be used as a test fixture
+**/User Data/
+**/Sessions/Session_*
+**/Sessions/Tabs_*
+*.jsonlz4
+*.baklz4
+*.ldb
+[0-9][0-9][0-9][0-9][0-9][0-9].log
+
+# Editors and operating systems
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*

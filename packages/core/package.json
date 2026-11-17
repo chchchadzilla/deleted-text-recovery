@@ -1,0 +1,13 @@
+{
+  "name": "@deleted-text-recovery/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The recovery engine: reads browser and app autosave formats and finds text that was typed. Runs in browsers and in Node, with zero dependencies.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./testing": "./src/testing.ts"
+  }
+}
