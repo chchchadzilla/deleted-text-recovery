@@ -24,7 +24,7 @@ The desktop app shows its results in your browser, so it runs a small web server
 
 ## Downloads
 
-Every release includes a `SHA256SUMS.txt` file. Releases are meant to be built from the tagged source by the `Release` workflow in GitHub Actions, which also attaches a build provenance attestation. Version 0.1.0 is the exception: GitHub Actions was unavailable for the account at the time, so its downloads were built on the maintainer's computer with `scripts/release-local.sh`, which runs the same steps. The programs are not yet code-signed, so Windows and macOS will warn about an unknown developer. If you would rather not run a download, the web app does the same job with nothing to install.
+Every release includes a `SHA256SUMS.txt` file. The downloads are built from the tagged source on the maintainer's computer with `scripts/release-local.sh`, because GitHub Actions is not available on the maintainer's account. That means there is no independent build record: you are trusting the maintainer's machine. If that matters to you, build it yourself (`npm install`, then `bash scripts/release-local.sh`), run the `Release` workflow in your own fork, or use the web app, whose single file you can read. The programs are not yet code-signed, so Windows and macOS will warn about an unknown developer. If you would rather not run a download, the web app does the same job with nothing to install.
 
 ## Use it on your own data
 

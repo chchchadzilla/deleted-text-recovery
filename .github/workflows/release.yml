@@ -2,9 +2,10 @@ name: Release
 
 # Builds the standalone programs from the tagged source and attaches them to the release,
 # with checksums and a build provenance attestation.
+#
+# Manual only. GitHub Actions is not available on the maintainer's account, so on the main
+# repository releases are built with scripts/release-local.sh, which runs the same steps.
 on:
-  release:
-    types: [published]
   workflow_dispatch:
     inputs:
       tag:
@@ -20,7 +21,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TAG: ${{ github.event.release.tag_name || inputs.tag }}
+      TAG: ${{ inputs.tag }}
     steps:
       - uses: actions/checkout@v4
         with:

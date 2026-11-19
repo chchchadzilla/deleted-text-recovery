@@ -2,9 +2,10 @@ name: Deploy web app
 
 # Builds the web app and publishes it to the gh-pages branch, which GitHub Pages serves at
 # https://chchchadzilla.github.io/deleted-text-recovery/
+#
+# Manual only. GitHub Actions is not available on the maintainer's account, so on the main
+# repository the site is published with scripts/deploy-web.sh, which does the same thing.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:

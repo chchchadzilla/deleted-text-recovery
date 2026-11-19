@@ -60,6 +60,7 @@ Useful while working:
 
 ## Pull requests
 
+- **Nothing checks a pull request automatically here.** GitHub Actions is not available on the maintainer's account, so there are no green ticks to wait for. Please run `npm run check` and `node scripts/audit.mjs` yourself and say that you did. A maintainer runs them again before merging. In your own fork you can run the `CI` workflow by hand from the Actions tab, which also covers macOS and Linux.
 - Keep them small and say what you verified and how.
 - Add a line to `CHANGELOG.md` under "Unreleased".
 - By contributing you agree that your work is released under the [MIT licence](LICENSE).

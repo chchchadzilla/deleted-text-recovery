@@ -1,12 +1,20 @@
+# One pull request a month, covering all three build tools together.
+#
+# Nothing on this repository can test a pull request automatically, so every update is checked
+# by hand with `npm run check`. One grouped PR keeps that to a single sitting.
 version: 2
 updates:
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: weekly
-    open-pull-requests-limit: 5
-  - package-ecosystem: github-actions
-    directory: /
-    schedule:
-      interval: weekly
-    open-pull-requests-limit: 5
+      interval: monthly
+    open-pull-requests-limit: 2
+    groups:
+      build-tools:
+        patterns:
+          - "*"
+    ignore:
+      # Node's type definitions follow the oldest Node version the project supports, so that
+      # the type-checker rejects APIs missing there. Move it by hand when that floor moves.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]

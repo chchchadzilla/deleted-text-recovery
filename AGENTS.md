@@ -112,7 +112,7 @@ Recovered text belongs to the person. Show them what they asked for and save it 
 packages/core     recovery engine (pure TypeScript, zero dependencies, runs in browsers and Node)
 apps/web          the web app, built into one self-contained HTML file
 apps/desktop      discovery, local server and CLI, built into one .cjs file
-scripts           build.mjs, test.mjs, audit.mjs, serve-web.mjs
+scripts           build.mjs, test.mjs, audit.mjs, serve-web.mjs, release-local.sh, deploy-web.sh
 docs              HOW_IT_WORKS.md and release notes
 assets            logo, mascot, banners
 ```
@@ -157,5 +157,7 @@ These are what make the tool safe to hand to a stranger. A change that weakens a
 
 1. Update `version` in the four `package.json` files, `VERSION` in `packages/core/src/index.ts`, and `CHANGELOG.md`.
 2. `npm run check` and `node scripts/audit.mjs`.
-3. Tag `vX.Y.Z` and publish a GitHub release. The `Release` workflow compiles the standalone programs for Windows, macOS and Linux and attaches them with checksums. If Actions cannot run, `bash scripts/release-local.sh` performs the same steps on a developer machine; say so in the release notes when you use it.
-4. The `Deploy web app` workflow builds the web app and publishes `apps/web/dist` to the `gh-pages` branch, which GitHub Pages serves, on every push to `main`.
+3. Build the downloads with `bash scripts/release-local.sh` (output in `.tmp/release/out`), then tag `vX.Y.Z` and publish a GitHub release with those files attached. Say in the release notes that they were built locally.
+4. Publish the web app with `bash scripts/deploy-web.sh`. It builds, then replaces the `gh-pages` branch, which GitHub Pages serves.
+
+GitHub Actions is not available on the maintainer's account, so nothing runs automatically on this repository: no checks on pushes or pull requests, no automatic deploys. The three workflows in `.github/workflows` are manual-only and exist for forks. Do not add `push`, `pull_request` or `release` triggers back here; every run would fail and mark the commit with a red cross. Run `npm run check` and `node scripts/audit.mjs` yourself before merging anything, including Dependabot's monthly pull request.

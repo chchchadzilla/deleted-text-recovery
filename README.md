@@ -300,7 +300,7 @@ Plainly, because you are trusting it at a bad moment:
 
 | | Windows | macOS | Linux |
 | --- | --- | --- | --- |
-| The 23 automated tests | Pass | Set up, first run pending | Set up, first run pending |
+| The 23 automated tests | Pass | Not run yet | Not run yet |
 | Tried on real lost text by the author | Yes: Chrome, Edge and Brave | Not yet | Not yet |
 | The downloadable program has been run | Yes | Not yet | Not yet |
 
