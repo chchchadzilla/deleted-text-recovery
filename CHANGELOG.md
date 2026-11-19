@@ -4,6 +4,16 @@ All notable changes to this project are recorded here. The format follows [Keep 
 
 ## [Unreleased]
 
+### Changed
+
+- Build tools updated: TypeScript 5.9 to 7.0 and esbuild 0.25 to 0.28. All 23 tests pass and both apps were rebuilt and smoke-tested. Node's type definitions stay on the 22 line on purpose, so the type-checker keeps rejecting APIs that older supported Node versions lack.
+- The three GitHub Actions workflows are now manual-only. GitHub Actions is not available on the maintainer's account, so every automatic run failed and marked commits with a red cross. Checks, releases and web deploys are done with local scripts instead.
+- Dependabot now opens one grouped pull request a month for the build tools, and no longer watches GitHub Actions versions, which cannot be tested here.
+
+### Added
+
+- `scripts/deploy-web.sh` publishes the web app to the `gh-pages` branch.
+
 ## [0.1.0] - 2026-11-17
 
 First release.

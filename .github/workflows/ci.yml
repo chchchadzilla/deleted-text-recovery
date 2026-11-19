@@ -1,9 +1,11 @@
 name: CI
 
+# Manual only. GitHub Actions is not available on the maintainer's account, so this cannot run
+# on the main repository: checks are run locally instead (npm run check, node scripts/audit.mjs).
+# In a fork with Actions enabled, start it from the Actions tab, or add push and pull_request
+# triggers back.
 on:
-  push:
-    branches: [main]
-  pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
